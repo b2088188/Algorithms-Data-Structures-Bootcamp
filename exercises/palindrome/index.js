@@ -8,9 +8,12 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-	return [...str].every((el, i, arr) => {
-		return el === arr[arr.length - i - 1];
-	});
+	let arr = [...str];
+	const first = arr[0];
+	const last = arr[arr.length - 1];
+	if (arr.length === 2) return first === last;
+	if (arr.length === 1) return true;
+	return first === last ? palindrome(arr.slice(1, arr.length - 1).join('')) : false;
 }
 
 module.exports = palindrome;
