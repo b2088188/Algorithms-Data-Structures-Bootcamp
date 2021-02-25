@@ -6,23 +6,16 @@
 // maxChar("apple 1231111") === "1"
 
 function maxChar(str) {
-	let chars = {};
-	let max = '';
-	let maxChar = '';
-	for (let char of str) {
-		if (!chars[char]) {
-			chars[char] = 1;
-		} else {
-			chars[char] += 1;
+	let arr = [...str];
+	const result = arr.reduce((acc, cur) => {
+		if (!acc[cur]) acc[cur] = 1;
+		else {
+			acc[cur]++;
 		}
-	}
-	for (let char in chars) {
-		if (chars[char] > max) {
-			max = chars[char];
-			maxChar = char;
-		}
-	}
-	return maxChar;
+		return acc;
+	}, {});
+	const [most, ...rest] = Object.keys(result).sort((a, b) => result[b] - result[a]);
+	return most;
 }
 
 module.exports = maxChar;
