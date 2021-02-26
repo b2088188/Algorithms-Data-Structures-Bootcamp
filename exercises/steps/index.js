@@ -17,6 +17,16 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+	let i = 1;
+	while (i <= n) {
+		console.log(generateSymbol(i, '#') + generateSymbol(n - i, ' '));
+		i++;
+	}
+}
+
+function generateSymbol(num, symbol) {
+	return [...Array(num).keys()].map((el) => symbol).join('');
+}
 
 module.exports = steps;
