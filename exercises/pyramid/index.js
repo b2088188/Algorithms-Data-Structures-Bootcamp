@@ -15,16 +15,20 @@
 //       '#####'
 
 // 1 3 5 7 9
-function pyramid(n) {
-	const mid = Math.floor((n * 2 - 1) / 2);
-	for (let i = 0; i < n; i++) {
-		let str = '';
-		for (let j = 0; j < n * 2 - 1; j++) {
-			if (j >= mid - i && j <= mid + i) str += '#';
-			else str += ' ';
-		}
+function pyramid(n, i = 0, str = '') {
+	if (i === n) return;
+	if (str.length === n * 2 - 1) {
 		console.log(str);
+		return pyramid(n, i + 1);
 	}
+	const mid = Math.floor((n * 2 - 1) / 2);
+	let add;
+	if (str.length >= mid - i && str.length <= mid + i) {
+		add = '#';
+	} else {
+		add = ' ';
+	}
+	return pyramid(n, i, str + add);
 }
 
 module.exports = pyramid;
