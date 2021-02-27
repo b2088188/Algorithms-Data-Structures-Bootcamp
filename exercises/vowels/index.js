@@ -8,12 +8,12 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-	let arr = [...str];
-	let vowelArr = ['a', 'e', 'i', 'o', 'u'];
-	return arr.reduce((acc, cur) => {
-		if (vowelArr.includes(cur) || vowelArr.includes(cur.toLowerCase())) return ++acc;
-		return acc;
-	}, 0);
+	// match will return an array of all the matches that were found.
+	// if no match found, it'll return null.
+	// g make sure we don't stop when matching the first character.
+	// i stands for insensitive.
+	const matches = str.match(/[aeiou]/gi);
+	return matches?.length || 0;
 }
 
 module.exports = vowels;
