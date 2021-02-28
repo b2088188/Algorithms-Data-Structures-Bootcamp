@@ -8,15 +8,11 @@
 // Example:
 //   fib(4) === 3
 
+// Runtime Complexity: Exponential Time - 2 ^ n
 function fib(n) {
-	let arr = [0, 1];
-	let count = n - 1;
-	while (count > 0) {
-		const last = arr[arr.length - 1] + arr[arr.length - 2];
-		arr = [...arr, last];
-		count--;
-	}
-	return arr[arr.length - 1];
+	if (n === 0) return 0;
+	if (n === 1) return 1;
+	return fib(n - 1) + fib(n - 2);
 }
 
 module.exports = fib;
