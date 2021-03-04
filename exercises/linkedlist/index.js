@@ -92,6 +92,15 @@ class LinkedList {
 		node.next = previous.next;
 		previous.next = node;
 	}
+	forEach(fn) {
+		let count = 0;
+		let node = this.head;
+		while (count <= this.size() - 1) {
+			fn(node, count);
+			node = node.next;
+			count++;
+		}
+	}
 }
 
 module.exports = { Node, LinkedList };
