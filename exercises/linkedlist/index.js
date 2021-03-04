@@ -14,9 +14,7 @@ class LinkedList {
 		this.head = null;
 	}
 	insertFirst(data) {
-		const lastNode = this.head;
-		const node = new Node(data, lastNode);
-		this.head = node;
+		this.insertAt(data, 0);
 	}
 	size() {
 		let count = 0;
@@ -28,15 +26,16 @@ class LinkedList {
 		return count;
 	}
 	getFirst() {
-		return this.head;
+		return this.getAt(0);
 	}
 	getLast() {
-		let node = this.head;
-		if (!node) return null;
-		while (node.next) {
-			node = node.next;
-		}
-		return node;
+		// let node = this.head;
+		// if (!node) return null;
+		// while (node.next) {
+		// 	node = node.next;
+		// }
+		// return node;
+		return this.getAt(this.size() - 1);
 	}
 	clear() {
 		this.head = null;
