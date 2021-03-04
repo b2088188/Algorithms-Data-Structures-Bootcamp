@@ -38,6 +38,14 @@ class LinkedList {
 		}
 		return node;
 	}
+	clear() {
+		this.head = null;
+	}
+	removeFirst() {
+		const firstnode = this.head;
+		if (!firstnode) return;
+		this.head = firstnode.next;
+	}
 }
 
 module.exports = { Node, LinkedList };
